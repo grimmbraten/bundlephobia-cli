@@ -1,0 +1,9 @@
+{
+  "name": "node-test",
+  "version": "1.0.0",
+  "main": "crawler.js",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.2"
+  }
+}
