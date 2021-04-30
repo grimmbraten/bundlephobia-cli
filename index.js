@@ -2,20 +2,21 @@ const request = require("request");
 
 const [, , bundle, ...flags] = process.argv;
 
+if (!bundle) return console.log("No bundle provided");
+
 request(
   `https://bundlephobia.com/api/size?package=${bundle}`,
-  (error, response, body) => {
-    if (error || response.statusCode !== 200) {
-      error.code === "PackageNotFoundError"
-        ? console.info(error.message)
-        : console.error("Something went wrong, please try again\n: ", error);
+  (_, { statusCode }, body) => {
+    if (statusCode !== 200) {
+      return statusCode === 500
+        ? console.info("Package not found")
+        : console.error("Something went wrong, please try again");
     }
 
     const bundle = JSON.parse(body);
 
     if ((flags.length === 1 && flags === "--raw") || flags === "-R") {
-      console.log(bundle);
-      return;
+      return console.log(bundle);
     }
 
     const {
@@ -34,7 +35,7 @@ request(
     const regular = convert(size);
 
     console.log(
-      `\n${name}@${version}\n${
+      `${name}@${version}\n${
         regular.mb >= 1 ? regular.mb + " MB" : regular.kb + " kB"
       } / ${zip.mb >= 1 ? zip.mb + " MB" : zip.kb + " kB"}`
     );
@@ -60,8 +61,6 @@ request(
         else peerDependencies.forEach(peer => console.log(peer));
       }
     });
-
-    console.log("");
   }
 );
 
