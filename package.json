@@ -1,8 +1,11 @@
 {
-  "name": "node-test",
+  "name": "bundlephobia-cli",
   "version": "1.0.0",
-  "main": "crawler.js",
+  "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "postinstall": "echo 'bundlephobia-cli has successfully been installed'"
+  },
   "dependencies": {
     "request": "^2.88.2"
   }
