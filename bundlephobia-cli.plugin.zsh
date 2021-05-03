@@ -1,9 +1,9 @@
-alias bp='controller'
+alias bp='run'
 
 origin="TBD"
 folder="$ZSH/plugins/bundlephobia-cli"
 
-function controller {
+function run {
     if [ "$1" = "install" ]; then
         yarn install --modules-folder $folder
     elif [ "$1" = "upgrade" ]; then
