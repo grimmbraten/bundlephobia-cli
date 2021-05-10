@@ -1,4 +1,4 @@
-const log = (output, params) => console.log(output);
+const log = output => console.log(output);
 
 const present = (regular, zip, name, version) =>
   console.log(
