@@ -5,6 +5,12 @@ const Flags = {
   raw: ["--raw", "-R"]
 };
 
+const Commands = {
+  flags: ["flags", "--flags", "-F"],
+  help: ["help", "--help", "-H"]
+};
+
 module.exports = {
-  Flags
+  Flags,
+  Commands
 };
