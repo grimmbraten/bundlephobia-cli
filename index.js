@@ -12,7 +12,7 @@ if (Commands.flags.includes(input)) return console.log(Flags);
 if (!input || Commands.help.includes(input))
   return log("bp <bundle-name> [--flags]");
 
-const browse = "https://bundlephobia.com/result?p=${input}";
+const browse = `https://bundlephobia.com/result?p=${input}`;
 const endpoint = `https://bundlephobia.com/api/size?package=${input}`;
 
 request(endpoint, (_, { statusCode }, body) => {
@@ -26,7 +26,7 @@ request(endpoint, (_, { statusCode }, body) => {
   flags.length === 0 && present(regular, zip, bundle.name, bundle.version);
 
   flags.forEach(flag => {
-    if (Flags.browse.includes(flag)) return open(`${browse}`);
+    if (Flags.browse.includes(flag)) return open(browse);
 
     if (Flags.raw.includes(flag)) return log(bundle);
 
