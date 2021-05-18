@@ -2,7 +2,8 @@ const Flags = {
   source: ["---source", "-S"],
   dependencies: ["--dependencies", "-D"],
   peer: ["--peer", "-P"],
-  raw: ["--raw", "-R"]
+  raw: ["--raw", "-R"],
+  browse: ["--browse", "-B"]
 };
 
 const Commands = {
