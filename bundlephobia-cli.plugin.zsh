@@ -1,13 +1,13 @@
 alias bp='run'
 
-origin="TBD"
-folder="$ZSH/plugins/bundlephobia-cli"
+local dir="$ZSH/plugins/bundlephobia-cli"
+local repository="git@github.com:grimmbraten/bundlephobia-cli.git"
 
 function run {
     if [ "$1" = "install" ]; then
-        yarn install --modules-folder $folder
-    elif [ "$1" = "upgrade" ]; then
-        git clone $origin $folder && controller install
+        yarn --cwd $dir install
+    elif [ "$1" = "update" ]; then
+        git clone $repository $dir && run install
     else
         node $folder $@
     fi
