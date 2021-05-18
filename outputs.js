@@ -3,11 +3,11 @@ const colors = require("colors");
 const log = output => console.log(output);
 
 const sizeColor = (size, output) =>
-  size < 1
+  size < 0.5
     ? colors.green(output)
-    : size >= 2
-    ? colors.yellow(output)
-    : colors.red(output);
+    : size >= 1
+    ? colors.red(output)
+    : colors.yellow(output);
 
 const present = (regular, zip, name, version) => {
   const regularText = regular.mb >= 1 ? regular.mb + " MB" : regular.kb + " kB";
