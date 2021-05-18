@@ -6,7 +6,7 @@
 git clone git@github.com:grimmbraten/bundlephobia-cli.git $ZSH/plugins/bundlephobia-cli && yarn --cwd $ZSH/plugins/bundlephobia-cli install
 ```
 
-Enable `bundlephobia-cli` as a active plugin by defining it in the plugni array in the `.zshrc` file:
+Enable `bundlephobia-cli` as a active plugin by defining it in the oh-my-zsh plugin array (in the `.zshrc` file):
 
 ```bash
 plugins=(bundlephobia-cli ...)
