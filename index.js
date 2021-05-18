@@ -1,3 +1,4 @@
+const open = require("open");
 const request = require("request");
 
 const { convert } = require("./helpers");
@@ -11,43 +12,45 @@ if (Commands.flags.includes(input)) return console.log(Flags);
 if (!input || Commands.help.includes(input))
   return log("bp <bundle-name> [--flags]");
 
-request(
-  `https://bundlephobia.com/api/size?package=${input}`,
-  (_, { statusCode }, body) => {
-    if (statusCode !== 200) return log(`woops, ${input} could not be found`);
+const browse = "https://bundlephobia.com/result?p=${input}";
+const endpoint = `https://bundlephobia.com/api/size?package=${input}`;
 
-    const bundle = JSON.parse(body);
+request(endpoint, (_, { statusCode }, body) => {
+  if (statusCode !== 200) return log(`woops, ${input} could not be found`);
 
-    const zip = convert(bundle.gzip);
-    const regular = convert(bundle.size);
+  const bundle = JSON.parse(body);
 
-    flags.length === 0 && present(regular, zip, bundle.name, bundle.version);
+  const zip = convert(bundle.gzip);
+  const regular = convert(bundle.size);
 
-    flags.forEach(flag => {
-      if (Flags.raw.includes(flag)) return log(bundle);
+  flags.length === 0 && present(regular, zip, bundle.name, bundle.version);
 
-      if (Flags.source.includes(flag))
-        return log(`${bundle.repository} - ${bundle.description}`);
+  flags.forEach(flag => {
+    if (Flags.browse.includes(flag)) return open(`${browse}`);
 
-      if (Flags.dependencies.includes(flag)) {
-        if (bundle.dependencyCount === 0)
-          return log(`${bundle.name} has no dependencies`);
+    if (Flags.raw.includes(flag)) return log(bundle);
 
-        bundle.dependencySizes.forEach((dependency, index) => {
-          if (index === 0) return;
+    if (Flags.source.includes(flag))
+      return log(`${bundle.repository} - ${bundle.description}`);
 
-          const size = convert(dependency.approximateSize);
+    if (Flags.dependencies.includes(flag)) {
+      if (bundle.dependencyCount === 0)
+        return log(`${bundle.name} has no dependencies`);
 
-          log(
-            `${dependency.name}: ${
-              size.mb >= 1 ? size.mb + " MB" : size.kb + " kB"
-            }`
-          );
-        });
-      } else if (Flags.peer.includes(flag)) {
-        if (!bundle.peerDependencies) return log(`${bundle.name} has no peers`);
-        bundle.peerDependencies.forEach(peer => log(peer));
-      }
-    });
-  }
-);
+      bundle.dependencySizes.forEach((dependency, index) => {
+        if (index === 0) return;
+
+        const size = convert(dependency.approximateSize);
+
+        log(
+          `${dependency.name}: ${
+            size.mb >= 1 ? size.mb + " MB" : size.kb + " kB"
+          }`
+        );
+      });
+    } else if (Flags.peer.includes(flag)) {
+      if (!bundle.peerDependencies) return log(`${bundle.name} has no peers`);
+      bundle.peerDependencies.forEach(peer => log(peer));
+    }
+  });
+});
