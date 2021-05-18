@@ -7,7 +7,7 @@ function run {
     if [ "$1" = "install" ]; then
         yarn --cwd $dir install
     elif [ "$1" = "update" ]; then
-        git clone $repository $dir && run install
+        git -C $dir pull && run install
     else
         node $folder $@
     fi
