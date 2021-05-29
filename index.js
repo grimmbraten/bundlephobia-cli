@@ -5,18 +5,18 @@ const { convert } = require("./helpers");
 const { Flags, Commands } = require("./types");
 const { present, log } = require("./outputs");
 
+const browse = `https://bundlephobia.com/result?p=${input}`;
+const endpoint = `https://bundlephobia.com/api/size?package=${input}`;
+
 const [, , input, ...flags] = process.argv;
 
 if (Commands.flags.includes(input)) return console.log(Flags);
 
-if (!input || Commands.help.includes(input))
+if (!input || Commands.help.includes(input) || input.includes('-'))
   return log("bp <bundle-name> [--flags]");
 
-const browse = `https://bundlephobia.com/result?p=${input}`;
-const endpoint = `https://bundlephobia.com/api/size?package=${input}`;
-
 request(endpoint, (_, { statusCode }, body) => {
-  if (statusCode !== 200) return log(`woops, ${input} could not be found`);
+  if (statusCode !== 200) return log(`could not find ${input}`);
 
   const bundle = JSON.parse(body);
 
