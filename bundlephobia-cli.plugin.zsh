@@ -9,6 +9,6 @@ function run {
     elif [ "$1" = "update" ]; then
         git -C $dir pull && run install
     else
-        node $folder $@
+        node $dir $@
     fi
 }
