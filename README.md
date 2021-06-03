@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-git clone git@github.com:grimmbraten/bundlephobia-cli.git $ZSH_CUSTOM/plugins/bundlephobia-cli && yarn --cwd $ZSH/plugins/bundlephobia-cli install
+git clone git@github.com:grimmbraten/bundlephobia-cli.git $ZSH_CUSTOM/plugins/bundlephobia-cli && yarn --cwd $ZSH_CUSTOM/plugins/bundlephobia-cli install
 ```
 
 Update `plugins=(bundlephobia-cli ...)` in your `.zshrc`.
