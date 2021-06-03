@@ -9,10 +9,6 @@ function run {
     elif [ "$1" = "update" ]; then
         git -C $dir pull && run install
     else
-        if [ -z "$(git status | grep 'branch is behind')" ]; then
-            echo "Do you wish to update bundlephobiac-li?"
-        fi
-
         node $dir $@
     fi
 }
