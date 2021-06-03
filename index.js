@@ -5,14 +5,14 @@ const { convert } = require("./helpers");
 const { Flags, Commands } = require("./types");
 const { present, log } = require("./outputs");
 
+const [, , input, ...flags] = process.argv;
+
 const browse = `https://bundlephobia.com/result?p=${input}`;
 const endpoint = `https://bundlephobia.com/api/size?package=${input}`;
 
-const [, , input, ...flags] = process.argv;
-
 if (Commands.flags.includes(input)) return console.log(Flags);
 
-if (!input || Commands.help.includes(input) || input.includes('-'))
+if (!input || Commands.help.includes(input) || input.includes("-"))
   return log("bp <bundle-name> [--flags]");
 
 request(endpoint, (_, { statusCode }, body) => {
