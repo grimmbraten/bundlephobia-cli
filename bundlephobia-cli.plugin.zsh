@@ -1,6 +1,6 @@
 alias bp='run'
 
-local dir="$ZSH/plugins/bundlephobia-cli"
+local dir="$ZSH_CUSTOM/plugins/bundlephobia-cli"
 local repository="git@github.com:grimmbraten/bundlephobia-cli.git"
 
 function run {
