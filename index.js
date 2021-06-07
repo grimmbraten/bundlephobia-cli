@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const open = require("open");
 const request = require("request");
 
