@@ -1,26 +1,23 @@
 <img width="100%" src="https://media1.tenor.com/images/7f70e01bf2fd0d65ac6f7c1b57bb5543/tenor.gif?itemid=14001403" />
+<br /><br />
 
 ## Installation
 
 ```bash
-git clone git@github.com:grimmbraten/bundlephobia-cli.git $ZSH_CUSTOM/plugins/bundlephobia-cli && yarn --cwd $ZSH_CUSTOM/plugins/bundlephobia-cli install
+yarn global add @grimmbraten/bundlephobia-cli
 ```
-
-Update `plugins=(bundlephobia-cli ...)` in your `.zshrc`.
-
-## Update
 
 ```bash
-bp update
+npm i -g  @grimmbraten/bundlephobia-cli
 ```
+
+For more information, please visit [@grimmbraten/bundlephobia-cli](https://www.npmjs.com/package/@grimmbraten/bundlephobia-cli) npm package page.
 
 ## Usage
 
 ```bash
 bp <package-name> [--flags]
 ```
-
-You can use as many flags as you want in one single command.
 
 ### Examples
 
