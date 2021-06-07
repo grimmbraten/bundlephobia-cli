@@ -1,14 +1,33 @@
 {
-  "name": "bundlephobia-cli",
-  "version": "1.0.0",
+  "name": "@grimmbraten/bundlephobia-cli",
+  "description": "Find out the cost of adding an npm package to your project from the comfort of your terminal",
+  "author": "Erik Grimmbråten",
+  "version": "1.0.1",
   "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "postinstall": "echo 'bundlephobia-cli has successfully been installed'"
+  "bin": {
+    "bp": "index.js"
   },
+  "preferGlobal": true,
+  "license": "MIT",
+  "scripts": {},
+  "keywords": [
+    "cli",
+    "packages",
+    "bundles",
+    "sizes",
+    "terminal",
+    "bundlephobia"
+  ],
   "dependencies": {
     "colors": "^1.4.0",
     "open": "^8.0.9",
     "request": "^2.88.2"
+  },
+  "bugs": {
+    "url": "https://github.com/grimmbraten/bundlephobia-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grimmbraten/bundlephobia-cli"
   }
 }
