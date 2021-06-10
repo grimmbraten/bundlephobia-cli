@@ -12,24 +12,32 @@ npm i -g @grimmbraten/bundlephobia-cli
 
 For more information, please visit [@grimmbraten/bundlephobia-cli](https://www.npmjs.com/package/@grimmbraten/bundlephobia-cli) npm package page.
 
+## Upgrade
+
+```bash
+yarn global add @grimmbraten/bundlephobia-cli@latest
+```
+
 ## Usage
 
 ```bash
-bp <package-name> [--flags]
+bp <bundle/command> [--flags]
 ```
 
 ### Examples
 
 ```bash
-bp jest
+bp react
 
-# jest@26.6.3
-# 2.2 MB / 587.8 kB
+# ✔ react@17.0.2
+# 6.9 kB minified
+# 2.8 kB gzipped
 ```
 
 ```bash
-bp webpack --dependencies
+bp webpack --dependencies --source
 
+# ✔ webpack@5.38.1
 # webpack-sources: 28.6 kB
 # schema-utils: 22.3 kB
 # tapable: 0.7 kB
@@ -50,28 +58,34 @@ bp webpack --dependencies
 # source-map: 0.2 kB
 # @webassemblyjs/wasm-parser: 36.0 kB
 # source-list-map: 0.3 kB
+
+# repository: https://github.com/webpack/webpack.git
+# description: Packs CommonJs/AMD modules for the browser...
 ```
 
 ```bash
-bp react --raw
+bp colors -R
 
+# ✔ colors@1.4.0
 # {
-#   assets: [ { gzip: 2909, name: 'main', size: 7128, type: 'js' } ],
-#   dependencyCount: 2,
-#   dependencySizes: [
-#     { approximateSize: 6320, name: 'react' },
-#     { approximateSize: 1236, name: 'object-assign' }
-#   ],
-#   description: 'React is a JavaScript library for building user interfaces.',
-#   gzip: 2909,
-#   hasJSModule: false,
-#   hasJSNext: false,
-#   hasSideEffects: true,
-#   isModuleType: false,
-#   name: 'react',
-#   repository: 'https://github.com/facebook/react.git',
-#   scoped: false,
-#   size: 7128,
-#   version: '17.0.2'
+#  assets: [ { gzip: 4139, name: 'main', size: 9547, type: 'js' } ],
+#  dependencyCount: 0,
+#  dependencySizes: [ { approximateSize: 12054, name: 'colors' } ],
+#  description: 'get colors in your node.js console',
+#  gzip: 4139,
+#  hasJSModule: false,
+#  hasJSNext: false,
+#  hasSideEffects: true,
+#  name: 'colors',
+#  repository: 'https://github.com/Marak/colors.js',
+#  scoped: false,
+#  size: 9547,
+#  version: '1.4.0'
 # }
+```
+
+## Uninstall
+
+```bash
+yarn global remove @grimmbraten/bundlephobia-cli
 ```
