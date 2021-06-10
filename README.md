@@ -1,5 +1,4 @@
 <img width="100%" src="https://media1.tenor.com/images/7f70e01bf2fd0d65ac6f7c1b57bb5543/tenor.gif?itemid=14001403" />
-<br /><br />
 
 ## Installation
 
@@ -8,7 +7,7 @@ yarn global add @grimmbraten/bundlephobia-cli
 ```
 
 ```bash
-npm i -g  @grimmbraten/bundlephobia-cli
+npm i -g @grimmbraten/bundlephobia-cli
 ```
 
 For more information, please visit [@grimmbraten/bundlephobia-cli](https://www.npmjs.com/package/@grimmbraten/bundlephobia-cli) npm package page.
