@@ -21,6 +21,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "open": "^8.0.9",
+    "ora": "^5.4.1",
     "request": "^2.88.2"
   },
   "bugs": {
