@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
+require("colors");
+
 const ora = require("ora");
 const open = require("open");
-const colors = require("colors");
 const request = require("request");
 
 const { convert, sizeUnit, sizeColor } = require("./helpers");
@@ -57,7 +58,11 @@ if (!input || input.includes("--")) return spinner.warn("invalid usage" + help);
 
 spinner.text = "Searching for bundle";
 
-request(endpoint, (_, { statusCode }, body) => {
+let establishedConnection = false;
+
+const req = request(endpoint, (_, { statusCode }, body) => {
+  clearTimeout(check);
+
   if (statusCode !== 200) return spinner.fail(`could not find ${input}`);
 
   const bundle = JSON.parse(body);
@@ -69,14 +74,14 @@ request(endpoint, (_, { statusCode }, body) => {
 
   flags.length === 0 &&
     console.log(
-      `${sizeColor(regular.mb, sizeUnit(regular))} / ${sizeColor(
-        zip.mb,
-        sizeUnit(zip)
-      )}`
+      `${sizeColor(regular.mb, sizeUnit(regular))} ` +
+        "minified".gray +
+        `\n${sizeColor(zip.mb, sizeUnit(zip))} ` +
+        "gzipped".gray
     );
 
   flags.forEach(flag => {
-    if (Flags.browse.includes(flag)) return console.open(browse);
+    if (Flags.browse.includes(flag)) return open(browse);
     else if (Flags.raw.includes(flag)) return console.log(bundle);
     else if (Flags.source.includes(flag))
       return console.log(
@@ -105,3 +110,12 @@ request(endpoint, (_, { statusCode }, body) => {
     }
   });
 });
+
+const check = setTimeout(() => {
+  if (!establishedConnection) {
+    req.abort();
+    return spinner.fail(
+      "trouble connecting to service, please try again later"
+    );
+  }
+}, 5000);
