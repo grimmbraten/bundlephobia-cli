@@ -1,5 +1,5 @@
 const Flags = {
-  source: ["---source", "-S"],
+  source: ["--source", "-S"],
   dependencies: ["--dependencies", "-D"],
   peer: ["--peer", "-P"],
   raw: ["--raw", "-R"],
@@ -8,7 +8,8 @@ const Flags = {
 
 const Commands = {
   flags: ["flags", "--flags", "-F"],
-  help: ["help", "--help", "-H"]
+  help: ["help", "--help", "-H"],
+  examples: ["examples", "--examples", "-E"]
 };
 
 module.exports = {
