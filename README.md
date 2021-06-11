@@ -7,15 +7,19 @@ yarn global add @grimmbraten/bundlephobia-cli
 ```
 
 ```bash
-npm i -g @grimmbraten/bundlephobia-cli
+npm install -g @grimmbraten/bundlephobia-cli
 ```
 
-For more information, please visit [@grimmbraten/bundlephobia-cli](https://www.npmjs.com/package/@grimmbraten/bundlephobia-cli) npm package page.
+For more package information, please visit [@grimmbraten/bundlephobia-cli](https://www.npmjs.com/package/@grimmbraten/bundlephobia-cli).
 
 ## Upgrade
 
 ```bash
 yarn global add @grimmbraten/bundlephobia-cli@latest
+```
+
+```bash
+npm update -g @grimmbraten/bundlephobia-cli@latest
 ```
 
 ## Usage
@@ -88,4 +92,8 @@ bp colors -R
 
 ```bash
 yarn global remove @grimmbraten/bundlephobia-cli
+```
+
+```bash
+npm uninstall -g @grimmbraten/bundlephobia-cli
 ```
