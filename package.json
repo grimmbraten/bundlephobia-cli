@@ -1,8 +1,8 @@
 {
   "name": "@grimmbraten/bundlephobia-cli",
-  "description": "Find out the cost of adding an npm package to your project from the comfort of your terminal",
+  "description": "Analyse the \"cost\" of npm packages from the comfort of your terminal",
   "author": "Erik Grimmbråten",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "index.js",
   "bin": {
     "bp": "index.js"
@@ -10,9 +10,6 @@
   "license": "MIT",
   "keywords": [
     "cli",
-    "packages",
-    "bundles",
-    "sizes",
     "terminal",
     "bundlephobia"
   ],
