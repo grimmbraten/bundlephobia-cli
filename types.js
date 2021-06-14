@@ -1,9 +1,12 @@
 const Flags = {
-  source: ["--source", "-S"],
+  info: ["--info", "-I"],
   dependencies: ["--dependencies", "-D"],
   peer: ["--peer", "-P"],
   raw: ["--raw", "-R"],
-  browse: ["--browse", "-B"]
+  browse: ["--browse", "-B"],
+  history: ["--history", "-H"],
+  list: ["--list", "-L"],
+  similar: ["--similar", "-S"]
 };
 
 const Commands = {
