@@ -15,11 +15,11 @@ For more package information, please visit [@grimmbraten/bundlephobia-cli](https
 ## Upgrade
 
 ```bash
-yarn global add @grimmbraten/bundlephobia-cli@latest
+yarn global upgrades @grimmbraten/bundlephobia-cli
 ```
 
 ```bash
-npm update -g @grimmbraten/bundlephobia-cli@latest
+npm update -g @grimmbraten/bundlephobia-cli
 ```
 
 ## Usage
