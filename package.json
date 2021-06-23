@@ -1,8 +1,8 @@
 {
   "name": "@grimmbraten/bundlephobia-cli",
-  "description": "Analyse the \"cost\" of npm packages from the comfort of your terminal",
+  "description": "Know the \"cost\" of adding  a npm packages to your bundle from the comfort of your terminal",
   "author": "Erik Grimmbråten",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "engines": {
     "node": ">= 8.5.0"
   },
