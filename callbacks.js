@@ -1,3 +1,4 @@
+const open = require("open");
 const colors = require("colors");
 
 const convert = size => ({
@@ -17,7 +18,7 @@ const sizeColor = (size, output) =>
 const calculate = (value, pow) => (value / Math.pow(1024, pow)).toFixed(1);
 
 const raw = (spinner, package) => {
-  spinner.succeed(`${package.name}` + ` ${package.version}`.gray);
+  spinner.succeed(`${package.name}` + `@${package.version}`.gray);
   console.log(package);
 };
 
@@ -25,7 +26,7 @@ const basic = (spinner, package) => {
   const zip = convert(package.gzip);
   const regular = convert(package.size);
 
-  spinner.succeed(`${package.name}` + ` ${package.version}`.gray);
+  spinner.succeed(`${package.name}` + `@${package.version}`.gray);
 
   console.log(
     `${sizeColor(regular.mb, sizeUnit(regular))} ` +
@@ -35,64 +36,82 @@ const basic = (spinner, package) => {
   );
 };
 
+const browser = (spinner, package) => {
+  open(`https://bundlephobia.com/result?p=${package.name}`);
+
+  spinner.succeed(
+    `opened ${package.name}` +
+      `@${package.version}`.gray +
+      " in your default browser"
+  );
+};
+
 const similar = (spinner, package) => {
   const packages = package.category.similar;
   const count = packages.length;
 
-  spinner.succeed(`found ${count} similar package${count > 1 && "s"}`);
+  if (count > 0) {
+    spinner.succeed(
+      package.name + ` ${count} similar package${count > 1 && "s"}`.gray
+    );
 
-  packages.forEach(package => {
-    console.log(package);
-  });
+    packages.forEach(package => {
+      console.log(package);
+    });
+  } else {
+    spinner.fail("could not find any similar packages");
+  }
 };
 
 const info = (spinner, package) => {
-  const {
-    homepage,
-    changelogFilename,
-    license,
-    deprecated,
-    humanDownloadsLast30Days
-  } = package;
+  spinner.succeed(`${package.name}` + `@${package.version}`.gray);
 
-  spinner.succeed("found additional meta data");
-
-  homepage && console.log(homepage + " homepage".gray);
-  changelogFilename && console.log(changelogFilename + " changelog".gray);
-
-  console.log(
-    `${license}` +
-      ` license`.gray +
-      `\n${humanDownloadsLast30Days}` +
-      ` downloads (30 days)`.gray
-  );
-  deprecated &&
-    console.log("\nwarning: this package is marked as deprecated".yellow);
+  console.table({
+    project: package.name,
+    version: package.version,
+    description: package.description,
+    dependents: package.dependents,
+    dependencies: Object.keys(package.dependencies).length,
+    devDepends: Object.keys(package.devDependencies).length,
+    types: Object.values(package.types).toString(),
+    license: package.license,
+    keywords:
+      package.keywords.length > 5
+        ? package.keywords.slice(0, 5).toString() + ", ..."
+        : package.keywords.toString(),
+    deprecated: package.deprecated,
+    popular: package.popular,
+    downloads: package.humanDownloadsLast30Days,
+    crawled: package.lastCrawl,
+    "author(s)": package.owners.map(owner => owner.name).join()
+  });
 };
 
-const history = (spinner, package) => {
+const history = (spinner, package, input) => {
   const history = Object.values(package);
   const count = history.length;
 
-  spinner.succeed(`${count} version${count > 1 && "s"}`);
+  spinner.succeed(input + ` ${count} version${count > 1 && "s"}`.gray);
 
   history.forEach(version => {
-    if (Flags.history.includes(flag)) {
+    if (Object.keys(version).length > 0) {
       const zip = convert(version.gzip);
       const regular = convert(version.size);
 
       console.log(
-        `\n${version.version}\n${sizeColor(regular.mb, sizeUnit(regular))} ` +
-          "minified".gray +
-          `\n${sizeColor(zip.mb, sizeUnit(zip))} ` +
-          "gzipped".gray
+        `\n${input}` +
+          `@${version.version}\n${sizeColor(regular.mb, sizeUnit(regular))}`
+            .gray +
+          " minified".gray +
+          `\n${sizeColor(zip.mb, sizeUnit(zip))}` +
+          " gzipped".gray
       );
-    } else console.log(`${version.version}`);
+    }
   });
 };
 
 const dependencies = (spinner, package) => {
-  spinner.succeed(`${package.name}` + ` ${package.version}`.gray);
+  spinner.succeed(`${package.name}` + `@${package.version}`.gray);
 
   if (package.dependencyCount === 0)
     return console.log("could not find any dependencies");
@@ -105,7 +124,7 @@ const dependencies = (spinner, package) => {
 };
 
 const peers = (spinner, package) => {
-  spinner.succeed(`${package.name}` + ` ${package.version}`.gray);
+  spinner.succeed(`${package.name}` + `@${package.version}`.gray);
 
   if (!package.peerDependencies) return console.log("could not find any peers");
   package.peerDependencies.forEach(peer => console.log(peer));
@@ -116,6 +135,7 @@ module.exports = {
   info,
   basic,
   peers,
+  browser,
   similar,
   history,
   dependencies
