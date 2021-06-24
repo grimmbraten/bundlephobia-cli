@@ -1,10 +1,9 @@
-const open = require("open");
-
 const {
   raw,
   info,
   basic,
   peers,
+  browser,
   similar,
   history,
   dependencies
@@ -22,7 +21,7 @@ const controller = (input, flag) => {
   };
 
   if (flag) {
-    if (Flags.history.includes(flag) || Flags.list.includes(flag)) {
+    if (Flags.history.includes(flag)) {
       return {
         endpoint: endpoints.history,
         callback: history,
@@ -65,9 +64,13 @@ const controller = (input, flag) => {
         failed: `could not find ${input}`
       };
     else if (Flags.browse.includes(flag)) {
-      open(endpoints.website);
-      response = undefined;
-    } else return undefined;
+      return {
+        endpoint: endpoints.basic,
+        callback: browser,
+        request: "searching for package",
+        failed: `could not find ${input}`
+      };
+    } else return;
   }
 
   return {
@@ -85,7 +88,6 @@ const Flags = {
   raw: ["--raw", "-r"],
   browse: ["--browse", "-b"],
   history: ["--history", "-h"],
-  list: ["--list", "-l"],
   similar: ["--similar", "-s"]
 };
 
