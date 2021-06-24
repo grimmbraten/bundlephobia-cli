@@ -1,4 +1,4 @@
-<img width="100%" src="https://media1.tenor.com/images/7f70e01bf2fd0d65ac6f7c1b57bb5543/tenor.gif?itemid=14001403" />
+<img width="100%" src="https://media1.tenor.com/images/7069478e26645f0d2cc62cebfd741102/tenor.gif?itemid=16142281" />
 
 ## Installation
 
@@ -10,23 +10,29 @@ yarn global add @grimmbraten/bundlephobia-cli
 npm install -g @grimmbraten/bundlephobia-cli
 ```
 
-For more package information, please visit [@grimmbraten/bundlephobia-cli](https://www.npmjs.com/package/@grimmbraten/bundlephobia-cli).
-
 ## Upgrade
 
 ```bash
-yarn global upgrades @grimmbraten/bundlephobia-cli
+yarn global upgrade @grimmbraten/bundlephobia-cli --latest
 ```
+
+For more information, please visit [yarn documentation](https://classic.yarnpkg.com/en/docs/cli/upgrade).
 
 ```bash
 npm update -g @grimmbraten/bundlephobia-cli
 ```
 
+Note: Globally installed packages are treated as if they are installed with a caret semver range specified. So if you require to update to latest you may need to run npm install -g [<pkg>...].
+
+For more information, please visit [npm documentation](https://docs.npmjs.com/cli/v6/commands/npm-update).
+
 ## Usage
 
 ```bash
-bp <bundle/command> [--flags]
+bp <package> [flag]
 ```
+
+For help in within your cli of choice, enter `bp` without any package or flag.
 
 ### Examples
 
@@ -39,7 +45,7 @@ bp react
 ```
 
 ```bash
-bp webpack --dependencies --source
+bp webpack --dependencies
 
 # ✔ webpack@5.38.1
 # webpack-sources: 28.6 kB
@@ -62,13 +68,10 @@ bp webpack --dependencies --source
 # source-map: 0.2 kB
 # @webassemblyjs/wasm-parser: 36.0 kB
 # source-list-map: 0.3 kB
-
-# repository: https://github.com/webpack/webpack.git
-# description: Packs CommonJs/AMD modules for the browser...
 ```
 
 ```bash
-bp colors -R
+bp colors -r
 
 # ✔ colors@1.4.0
 # {
