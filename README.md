@@ -16,23 +16,21 @@ npm install -g @grimmbraten/bundlephobia-cli
 yarn global upgrade @grimmbraten/bundlephobia-cli --latest
 ```
 
-For more information, please visit [yarn documentation](https://classic.yarnpkg.com/en/docs/cli/upgrade).
+For more information, please refer to the [yarn documentation](https://classic.yarnpkg.com/en/docs/cli/upgrade).
 
 ```bash
 npm update -g @grimmbraten/bundlephobia-cli
 ```
 
-Note: Globally installed packages are treated as if they are installed with a caret semver range specified. So if you require to update to latest you may need to run npm install -g [<pkg>...].
+> Good to know, globally installed packages are treated as if they are installed with a caret semver range specified. So if you require to update to the latest (breaking changes version) you may need to `run npm install -g <package>`.
 
-For more information, please visit [npm documentation](https://docs.npmjs.com/cli/v6/commands/npm-update).
+For more information, please refer to the [npm documentation](https://docs.npmjs.com/cli/v6/commands/npm-update).
 
 ## Usage
 
 ```bash
 bp <package> [flag]
 ```
-
-For help in within your cli of choice, enter `bp` without any package or flag.
 
 ### Examples
 
@@ -71,7 +69,7 @@ bp webpack --dependencies
 ```
 
 ```bash
-bp colors -r
+bp colors --raw
 
 # ✔ colors@1.4.0
 # {

@@ -2,7 +2,7 @@
   "name": "@grimmbraten/bundlephobia-cli",
   "description": "Know the \"cost\" of adding  a npm packages to your bundle from the comfort of your terminal",
   "author": "Erik Grimmbråten",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "engines": {
     "node": ">= 8.5.0"
   },

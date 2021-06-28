@@ -16,7 +16,7 @@ if (!input || input.includes("-"))
     "bundlephobia-cli" +
       "\nbp open " +
       "view package size of latest open version".gray +
-      "\nbp colors -i " +
+      "\nbp colors --info " +
       "fetch information about the colors package".gray +
       "\nbp orb --dependencies " +
       "list all dependencies of the orb package".gray
