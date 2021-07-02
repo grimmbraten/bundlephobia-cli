@@ -11,7 +11,7 @@ const [, , input, flag] = process.argv;
 
 const spinner = ora(`starting service`).start();
 
-if (!input || input.includes("-"))
+if (!input)
   return spinner.info(
     "bundlephobia-cli" +
       "\nbp open " +
