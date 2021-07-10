@@ -1,4 +1,14 @@
-<img width="100%" src="https://media1.tenor.com/images/66fab3cfcfe5849f624522756524d75b/tenor.gif?itemid=16142281" />
+<img width="100%" src="https://media1.tenor.com/images/b228138ca189b63989d295492e8a8b16/tenor.gif?itemid=4774531" />
+
+<br />
+
+<img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+
+<img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node-dot-js&logoColor=white"/>
+
+<img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/>
+
+Please checkout their awesome [service](https://bundlephobia.com/) and visit their github [repository](https://github.com/pastelsky/bundlephobia).
 
 ## Installation
 
