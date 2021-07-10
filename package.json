@@ -2,13 +2,13 @@
   "name": "@grimmbraten/bundlephobia-cli",
   "description": "Know the \"cost\" of adding  a npm packages to your bundle from the comfort of your terminal",
   "author": "Erik Grimmbråten",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "engines": {
     "node": ">= 8.5.0"
   },
-  "main": "index.js",
   "bin": {
-    "bp": "index.js"
+    "bp": "index.js",
+    "bundlephobia": "index.js"
   },
   "license": "MIT",
   "keywords": [
