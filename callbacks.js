@@ -66,7 +66,7 @@ const similar = (spinner, package) => {
 const info = (spinner, package) => {
   spinner.succeed(`${package.name}` + `@${package.version}`.gray);
 
-  console.table({
+  console.log({
     project: package.name,
     version: package.version,
     description: package.description,
@@ -83,7 +83,7 @@ const info = (spinner, package) => {
     popular: package.popular,
     downloads: package.humanDownloadsLast30Days,
     crawled: package.lastCrawl,
-    "author(s)": package.owners.map(owner => owner.name).join()
+    authors: package.owners.map(owner => owner.name).join()
   });
 };
 
