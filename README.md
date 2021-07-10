@@ -6,7 +6,7 @@
 <a href="https://nodejs.org/en/"><img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node-dot-js&logoColor=white"/></a>
 <a href="https://github.com/grimmbraten/bundlephobia-cli"><img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/></a>
 
-Please checkout their awesome [service](https://bundlephobia.com/) and visit their github [repository](https://github.com/pastelsky/bundlephobia).
+This project is a fan made tool for the incredible Bundlephobia [website](https://bundlephobia.com/). Please check them out and give them a star on [github](https://github.com/pastelsky/bundlephobia).
 
 ## Installation
 
