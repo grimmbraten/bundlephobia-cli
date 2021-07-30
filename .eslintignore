@@ -1,4 +1,5 @@
 *.md
+build
 coverage
 *.test.js
 *.config.*
