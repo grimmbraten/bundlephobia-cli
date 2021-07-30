@@ -2,11 +2,7 @@
 
 <br />
 
-<a href="https://www.javascript.com/"><img alt="JavaScript" src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/></a>
-<a href="https://nodejs.org/en/"><img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge&logo=node-dot-js&logoColor=white"/></a>
-<a href="https://github.com/grimmbraten/bundlephobia-cli"><img alt="GitHub" src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"/></a>
-
-This project is a fan made tool for the incredible Bundlephobia [website](https://bundlephobia.com/). Please check them out and give them a star on [github](https://github.com/pastelsky/bundlephobia).
+Access the incredible features provided by [Bundlephobia](https://bundlephobia.com/) from the comfort of your cli of choice.
 
 ## Installation
 
@@ -29,8 +25,6 @@ For more information, please refer to the [yarn documentation](https://classic.y
 ```bash
 npm update -g @grimmbraten/bundlephobia-cli
 ```
-
-> Good to know, globally installed packages are treated as if they are installed with a caret semver range specified. So if you require to update to the latest (breaking changes version) you may need to `run npm install -g <package>`.
 
 For more information, please refer to the [npm documentation](https://docs.npmjs.com/cli/v6/commands/npm-update).
 
