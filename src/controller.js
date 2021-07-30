@@ -1,13 +1,4 @@
-const {
-  raw,
-  info,
-  basic,
-  peers,
-  browser,
-  similar,
-  history,
-  dependencies
-} = require("./callbacks");
+const { raw, info, basic, peers, browser, similar, history, dependencies } = require('./callbacks');
 
 const controller = (input, flag) => {
   const endpoints = {
@@ -25,49 +16,49 @@ const controller = (input, flag) => {
       return {
         endpoint: endpoints.history,
         callback: history,
-        request: "fetching history",
+        request: 'fetching history',
         failed: `could not find ${input}`
       };
     } else if (Flags.similar.includes(flag))
       return {
         endpoint: endpoints.similar,
         callback: similar,
-        request: "search for similar packages",
+        request: 'search for similar packages',
         failed: `could not find ${input}`
       };
     else if (Flags.info.includes(flag))
       return {
         endpoint: endpoints.package,
         callback: info,
-        request: "fetching package information",
+        request: 'fetching package information',
         failed: `could not find ${input}`
       };
     else if (Flags.raw.includes(flag))
       return {
         endpoint: endpoints.basic,
         callback: raw,
-        request: "searching for package",
+        request: 'searching for package',
         failed: `could not find ${input}`
       };
     else if (Flags.dependencies.includes(flag))
       return {
         endpoint: endpoints.basic,
         callback: dependencies,
-        request: "looking up dependencies",
+        request: 'looking up dependencies',
         failed: `could not find ${input}`
       };
     else if (Flags.peer.includes(flag))
       return {
         endpoint: endpoints.basic,
         callback: peers,
-        request: "searching for peers",
+        request: 'searching for peers',
         failed: `could not find ${input}`
       };
     else if (Flags.browse.includes(flag)) {
       return {
         endpoint: endpoints.basic,
         callback: browser,
-        request: "searching for package",
+        request: 'searching for package',
         failed: `could not find ${input}`
       };
     } else return;
@@ -76,19 +67,19 @@ const controller = (input, flag) => {
   return {
     endpoint: endpoints.basic,
     callback: basic,
-    request: "searching for package",
+    request: 'searching for package',
     failed: `could not find ${input}`
   };
 };
 
 const Flags = {
-  info: ["--info", "-i"],
-  dependencies: ["--dependencies", "-d"],
-  peer: ["--peer", "-p"],
-  raw: ["--raw", "-r"],
-  browse: ["--browse", "-b"],
-  history: ["--history", "-h"],
-  similar: ["--similar", "-s"]
+  info: ['--info', '-i'],
+  dependencies: ['--dependencies', '-d'],
+  peer: ['--peer', '-p'],
+  raw: ['--raw', '-r'],
+  browse: ['--browse', '-b'],
+  history: ['--history', '-h'],
+  similar: ['--similar', '-s']
 };
 
 module.exports = controller;
