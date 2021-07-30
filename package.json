@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "prepack": "yarn check:eslint && yarb build",
+    "prepack": "yarn check:eslint && yarn build",
     "check:eslint": "yarn eslint .",
     "report:eslint": "yarn eslint . --output-file ./reports/eslint.html --format html"
   },
