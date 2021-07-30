@@ -1,0 +1,29 @@
+{
+  "env": {
+    "node": true,
+    "es2021": true,
+    "browser": true
+  },
+  "rules": {
+    "no-empty-function": "warn",
+    "no-inline-comments": "warn",
+    "default-param-last": "warn",
+    "prefer-destructuring": "warn",
+    "prefer-arrow-callback": "warn",
+    "func-style": ["warn", "declaration", { "allowArrowFunctions": true }],
+    "no-var": "error",
+    "eqeqeq": "error",
+    "camelcase": "error",
+    "no-eq-null": "error",
+    "prefer-const": "error",
+    "no-self-compare": "error",
+    "no-useless-return": "error",
+    "no-trailing-spaces": "error",
+    "no-duplicate-imports": "error",
+    "capitalized-comments": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": ["error", "as-needed"],
+    "comma-dangle": ["error", "never"]
+  },
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"]
+}

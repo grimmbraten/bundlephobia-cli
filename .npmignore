@@ -1,2 +1,7 @@
 src
+reports
+.github
+.eslintrc
+.prettierrc
+.eslintignore
 webpack.config.js

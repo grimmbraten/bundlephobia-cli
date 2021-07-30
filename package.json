@@ -11,7 +11,10 @@
     "bundlephobia": "build/index.js"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "prepack": "yarn check:eslint && yarb build",
+    "check:eslint": "yarn eslint .",
+    "report:eslint": "yarn eslint . --output-file ./reports/eslint.html --format html"
   },
   "prepublish": "yarn build",
   "license": "MIT",
@@ -34,6 +37,10 @@
     "url": "https://github.com/grimmbraten/bundlephobia-cli"
   },
   "devDependencies": {
+    "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2",
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.44.0",
     "webpack-cli": "^4.7.2",

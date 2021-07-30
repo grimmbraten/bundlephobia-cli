@@ -1,0 +1,5 @@
+*.md
+coverage
+*.test.js
+*.config.*
+node_modules
